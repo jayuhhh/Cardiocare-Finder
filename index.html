@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardiocare Finder - Emergency Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top Emergency Header -->
+    <header class="navbar">
+        <div class="logo"> Cardiocare Finder</div>
+        <div class="emergency-badge">EMERGENCY PORTAL</div>
+    </header>
+
+    <!-- Quick Location Navigation Bar -->
+    <nav class="location-nav">
+        <span class="nav-label">📍 Quick Locate:</span>
+        <div class="nav-links">
+            <button onclick="navigateToHospital('Zydus Hospital')">Zydus Hospital</button>
+            <button onclick="navigateToHospital('KD Hospital')">KD Hospital</button>
+            <button onclick="navigateToHospital('SGVP Hospital')">SGVP Hospital</button>
+            <button onclick="navigateToHospital('Apollo Hospital')">Apollo Hospital</button>
+            <button onclick="navigateToHospital('KIMS Hospital')">KIMS Hospital</button>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="container">
+        <section class="search-section">
+            <h1>Find Immediate Emergency Care</h1>
+            <p>Enter your medical emergency or disease condition to locate nearest hospitals with live bed availability.</p>
+            
+            <div class="search-box">
+                <input type="text" id="diseaseInput" placeholder="e.g., Heart Attack, Cardiac Arrest, Stroke..." autocomplete="off">
+                <button id="searchBtn">Search Hospitals</button>
+            </div>
+            <div id="errorMessage" class="error-msg"></div>
+        </section>
+
+        <!-- Live Results Section -->
+        <section class="results-section" id="resultsSection">
+            <h2 class="section-title" id="resultsTitle">All Available Emergency Hospitals</h2>
+            <div class="hospital-grid" id="hospitalGrid">
+                <!-- Dynamic cards injected here via JS -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Appointment Notification Modal -->
+    <div class="modal-overlay hidden" id="notificationModal">
+        <div class="modal">
+            <div class="modal-icon">🔔</div>
+            <h2>Hospital Notified!</h2>
+            <p id="modalMessage"></p>
+            <div class="status-tracker">
+                <div class="step active">✓ Request Sent</div>
+                <div class="step active animate-pulse">⚡ Hospital Standing By</div>
+            </div>
+            <button class="close-btn" id="closeModalBtn">Close and Keep Tracking</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

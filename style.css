@@ -1,0 +1,359 @@
+/* Core Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8fafc;
+    color: #1e293b;
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #dc2626;
+}
+
+.emergency-badge {
+    background-color: #dc2626;
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    animation: blink 2s infinite;
+}
+
+/* Quick Location Navigation Bar */
+.location-nav {
+    background-color: #1e293b;
+    color: white;
+    padding: 0.75rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.nav-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #94a3b8;
+}
+
+.nav-links {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.nav-links button {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.nav-links button:hover {
+    background: #dc2626;
+    border-color: #dc2626;
+}
+
+/* Container */
+.container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Search Section */
+.search-section {
+    text-align: center;
+    background: linear-gradient(135deg, #fee2e2 0%, #fff 100%);
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+    border: 1px solid #fca5a5;
+}
+
+.search-section h1 {
+    font-size: 2.2rem;
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+}
+
+.search-section p {
+    color: #64748b;
+    margin-bottom: 1.5rem;
+}
+
+.search-box {
+    display: flex;
+    max-width: 600px;
+    margin: 0 auto;
+    gap: 0.5rem;
+}
+
+#diseaseInput {
+    flex: 1;
+    padding: 0.85rem 1rem;
+    border: 2px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#diseaseInput:focus {
+    border-color: #dc2626;
+}
+
+#searchBtn {
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    padding: 0 1.5rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#searchBtn:hover {
+    background-color: #b91c1c;
+}
+
+.error-msg {
+    color: #dc2626;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Results Section */
+.hidden {
+    display: none !important;
+}
+
+.section-title {
+    font-size: 1.4rem;
+    color: #1e293b;
+    margin-bottom: 1rem;
+    border-left: 4px solid #dc2626;
+    padding-left: 0.5rem;
+}
+
+.hospital-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Hospital Cards */
+.hospital-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.4s ease;
+}
+
+/* Highlight effect when navigated from location bar */
+.hospital-card.highlight {
+    border-color: #dc2626;
+    box-shadow: 0 0 15px rgba(220, 38, 38, 0.3);
+    transform: scale(1.02);
+}
+
+.hospital-name {
+    font-size: 1.3rem;
+    color: #0f172a;
+    margin-bottom: 0.25rem;
+}
+
+.hospital-meta {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-bottom: 0.75rem;
+}
+
+/* Doctor & Contact Info Boxes */
+.hospital-contact {
+    background-color: #f1f5f9;
+    padding: 0.75rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.doctor-name {
+    color: #0f172a;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.phone-link {
+    color: #dc2626;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.phone-link:hover {
+    text-decoration: underline;
+}
+
+.metrics {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+    background: #f8fafc;
+    padding: 0.75rem;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+}
+
+.metric-item .label {
+    font-size: 0.75rem;
+    color: #64748b;
+    text-transform: uppercase;
+}
+
+.metric-item .val {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.val.green { color: #16a34a; }
+.val.blue { color: #2563eb; }
+
+.book-btn {
+    width: 100%;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.book-btn:hover {
+    background-color: #1d4ed8;
+}
+
+/* Modal Window */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    max-width: 450px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+}
+
+.modal-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    animation: pulse 1.5s infinite;
+}
+
+.modal h2 {
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+}
+
+.modal p {
+    color: #475569;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.status-tracker {
+    background: #f1f5f9;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.step {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #94a3b8;
+    margin-bottom: 0.5rem;
+}
+
+.step.active {
+    color: #16a34a;
+}
+
+.step.animate-pulse {
+    animation: textPulse 1s infinite alternate;
+}
+
+.close-btn {
+    background-color: #0f172a;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    width: 100%;
+}
+
+/* Animations */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes textPulse {
+    from { color: #16a34a; }
+    to { color: #15803d; }
+}
